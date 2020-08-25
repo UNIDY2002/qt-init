@@ -44,7 +44,10 @@ int main(int argc, char *argv[]) {
 
     cout << "[INFO] Generating source files..." << endl;
     ofstream cmake("CMakeLists.txt", ios::out);
-    cmake << "cmake_minimum_required(VERSION " << minVersion << ")" << endl
+    cmake << "# Generated with qt-init" << endl
+          << "# See: https://github.com/UNIDY2002/qt-init" << endl
+          << endl
+          << "cmake_minimum_required(VERSION " << minVersion << ")" << endl
           << "project(" << project << ")" << endl
           << endl
           << "set(CMAKE_CXX_STANDARD 14)" << endl
@@ -57,15 +60,15 @@ int main(int argc, char *argv[]) {
           << endl
           << "set(CMAKE_PREFIX_PATH " << sdk << ")" << endl
           << endl
-          << "find_package(Qt5Core REQUIRED)" << endl
-          << "find_package(Qt5Widgets REQUIRED)" << endl
-          << "find_package(Qt5Gui REQUIRED)" << endl
+          << "# For new modules, simply add them here." << endl
+          << "find_package(Qt5 COMPONENTS Core Gui Widgets REQUIRED)" << endl
           << endl
           << "aux_source_directory(. DIRS_SRCS)" << endl
           << endl
           << "add_executable(" << project << " main.cpp)" << endl
           << endl
-          << "target_link_libraries(" << project << " Qt5::Widgets)" << endl;
+          << "# And do not forget to link new modules here." << endl
+          << "target_link_libraries(" << project << " Qt5::Core Qt5::Gui Qt5::Widgets)" << endl;
     cmake.close();
     ofstream main("main.cpp", ios::out);
     main << "#include <QApplication>" << endl

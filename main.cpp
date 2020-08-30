@@ -65,7 +65,12 @@ int main(int argc, char *argv[]) {
           << endl
           << "aux_source_directory(. DIRS_SRCS)" << endl
           << endl
-          << "add_executable(" << project << " main.cpp)" << endl
+          << "include_directories(.)" << endl
+          << endl
+          << "# Resource files are supposed to be added below." << endl
+          << "qt5_add_resources(QRC_FILES)" << endl
+          << endl
+          << "add_executable(" << project << " main.cpp ${QRC_FILES})" << endl
           << endl
           << "# And do not forget to link new modules here." << endl
           << "target_link_libraries(" << project << " Qt5::Core Qt5::Gui Qt5::Widgets)" << endl;

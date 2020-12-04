@@ -1,5 +1,7 @@
 # qt-init: A CLI application for initializing CMake Qt projects
 
+***NOTE: CLion 2020.3 provides perfect support for Qt Projects. THIS PROJECT IS THUS ARCHIVED. SEE: [JetBrains Blog](https://blog.jetbrains.com/clion/2020/12/clion-2020-3-debug-misra-qt/#qt_projects)***
+
 ## Dependencies
 
 - Windows
